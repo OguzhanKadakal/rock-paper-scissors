@@ -1,8 +1,8 @@
-function playGame() {
-  //SCORE VARIABLES
-  let humanScore = 0;
-  let computerScore = 0;
+ //SCORE VARIABLES
+ let humanScore = 0;
+ let computerScore = 0;
 
+function playGame() {
   // COMPUTER CHOICE FUNCTION
   function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -29,6 +29,7 @@ function playGame() {
   }
   const humanSelection = getHumanChoice();
 
+  // ROUND AND RESULT FUNCTION
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === "Rock" && computerChoice === "Rock") {
       return "Draw! Rock can't beat Rock";
@@ -53,8 +54,27 @@ function playGame() {
 
   let result = playRound(humanSelection, computerSelection);
   console.log(result);
+
+  //SCORE COUNTER
+  function score(counter) {
+    if (counter.includes("Win")) {
+      humanScore++;
+    } else if (counter.includes("Lose")) {
+      computerScore++;
+    }
+  }
+  score(result);
+  console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
 }
 
 for (let i = 0; i < 5; i++) {
-    playGame();
+  playGame();
+}
+
+if (humanScore > computerScore ) {
+    console.log("Congratulations! You Win The Game!")
+} else if (humanScore === computerScore){
+    console.log("Draw! Better Luck next Time!")   
+} else {
+    console.log("You Lose The Game! Better Luck Next Time!")
 }
