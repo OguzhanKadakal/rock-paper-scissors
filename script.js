@@ -1,6 +1,6 @@
- //SCORE VARIABLES
- let humanScore = 0;
- let computerScore = 0;
+//SCORE VARIABLES
+let humanScore = 0;
+let computerScore = 0;
 
 function playGame() {
   // COMPUTER CHOICE FUNCTION
@@ -25,6 +25,9 @@ function playGame() {
       return "Paper";
     } else if (userInput.toLowerCase() === "scissors") {
       return "Scissors";
+    } else {
+      console.log("Invalid choice! Defaulting to Rock.");
+      return "Rock";
     }
   }
   const humanSelection = getHumanChoice();
@@ -71,10 +74,10 @@ for (let i = 0; i < 5; i++) {
   playGame();
 }
 
-if (humanScore > computerScore ) {
-    console.log("Congratulations! You Win The Game!")
-} else if (humanScore === computerScore){
-    console.log("Draw! Better Luck next Time!")   
+if (humanScore > computerScore) {
+  console.log("Congratulations! You Win The Game!");
+} else if (humanScore === computerScore) {
+  console.log("Draw! Better Luck next Time!");
 } else {
-    console.log("You Lose The Game! Better Luck Next Time!")
+  console.log("You Lose The Game! Better Luck Next Time!");
 }
